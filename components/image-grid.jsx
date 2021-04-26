@@ -8,9 +8,8 @@ const ImageGrid = ({ setSelectedImg }) => {
 
   return (
     <div className="layout-spin">
-      {showSpin ? (
-        <Spinner />
-      ) : (
+      {showSpin && <Spinner />}
+      {!showSpin && (
         <div className="img-grid">
           {docs &&
             docs.map((doc) => (
@@ -21,7 +20,9 @@ const ImageGrid = ({ setSelectedImg }) => {
                 whileHover={{ opactiy: 1 }}
                 layout
               >
-                <motion.img src={doc.url} alt="uploaded pic"
+                <motion.img
+                  src={doc.url}
+                  alt="uploaded pic"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1 }}
