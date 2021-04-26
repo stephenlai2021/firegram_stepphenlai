@@ -8,7 +8,7 @@ const useStorage = (file) => {
   
   useEffect(() => {
     // references
-    const storageRef = storage.ref(file.name)
+    const storageRef = storage.ref('/firegram' + file.name)
     const collectionRef = firestore.collection('images')
 
     // upload selected file to firebase storage
@@ -21,11 +21,11 @@ const useStorage = (file) => {
     }, async () => {
       const url = await storageRef.getDownloadURL();
 
-      // save image url+createdTime properties to firestore
+      // save image (url, createdAt) properties to firestore
       collectionRef.add({ url, createdAt: timestamp() });
       setUrl(url);
 
-      // save image url+createdTime properties to realtime database
+      // save image (url, createdAt) properties to realtime database
       fetch(
         "https://udemy-course-nextjs-default-rtdb.firebaseio.com/images.json",
         {
