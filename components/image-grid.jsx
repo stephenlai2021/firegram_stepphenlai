@@ -4,7 +4,7 @@ import Spinner from "./spinner";
 import { motion } from 'framer-motion'
 
 const ImageGrid = ({ setSelectedImg }) => {
-  const { docs, showSpin } = useFirestore("images");
+  const { docs, showSpin } = useFirestore("firegram");
 
   return (
     <div className="layout-spin">

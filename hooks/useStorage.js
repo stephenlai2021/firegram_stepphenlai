@@ -8,7 +8,7 @@ const useStorage = (file) => {
   
   useEffect(() => {
     // references
-    const storageRef = storage.ref('/firegram' + file.name)
+    const storageRef = storage.ref('firegram/' + file.name)
     const collectionRef = firestore.collection('firegram')
 
     // upload selected file to firebase storage
